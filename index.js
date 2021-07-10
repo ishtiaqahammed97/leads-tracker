@@ -4,6 +4,7 @@ const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("input-btn")
 const ulEl = document.getElementById("ul-el")
 
+let leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads") )
 
 inputBtn.addEventListener("click", function () {
     myLeads.push(inputEl.value)
@@ -11,7 +12,12 @@ inputBtn.addEventListener("click", function () {
 
     // now clear out the input field
     inputEl.value = ""
+
+    // save the myLeads array to localStorage
+    localStorage.setItem("myLeads", JSON.stringify(myLeads))
     renderLeads()
+
+    console.log( localStorage.getItem("myLeads"));
 
 })
 // One. Wrap the code below in a renderLeads() function
@@ -43,4 +49,4 @@ function renderLeads() {
     ulEl.innerHTML = listItems
 }
 
-// 5.28
+// 6.13

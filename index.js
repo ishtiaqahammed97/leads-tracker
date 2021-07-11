@@ -3,7 +3,6 @@ let myLeads = []
 const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("input-btn")
 const ulEl = document.getElementById("ul-el")
-// store the delete button
 const deleteBtn = document.getElementById("delete-btn")
 const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"))
 const tabBtn = document.getElementById("tab-btn")
@@ -12,7 +11,6 @@ if (leadsFromLocalStorage) {
     myLeads = leadsFromLocalStorage
     render(myLeads)
 }
-
 tabBtn.addEventListener("click", function () {
     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         myLeads.push(tabs[0].url)
@@ -20,7 +18,6 @@ tabBtn.addEventListener("click", function () {
         render(myLeads)
         //had to add permission for chrome extension in the manifest.json file
     })
-
 })
 // One. Wrap the code below in a renderLeads() function
 function render(leads) {
@@ -51,9 +48,7 @@ function render(leads) {
     ulEl.innerHTML = listItems
 }
 
-// listen for double click on delete button.
 // when clicked, clear localStorage, myLeads and DOM
-
 deleteBtn.addEventListener("dblclick", function () {
     localStorage.clear()
     myLeads = []
@@ -71,5 +66,3 @@ inputBtn.addEventListener("click", function () {
     localStorage.setItem("myLeads", JSON.stringify(myLeads))
     render(myLeads)
 })
-
-

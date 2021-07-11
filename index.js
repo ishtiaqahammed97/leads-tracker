@@ -3,8 +3,23 @@ let myLeads = []
 const inputEl = document.getElementById("input-el")
 const inputBtn = document.getElementById("input-btn")
 const ulEl = document.getElementById("ul-el")
+// store the delete button
+const deleteBtn = document.getElementById("delete-btn")
+const leadsFromLocalStorage = JSON.parse( localStorage.getItem("myLeads") )
 
-let leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads") )
+if (leadsFromLocalStorage) {
+    myLeads = leadsFromLocalStorage
+    renderLeads()
+}
+
+// listen for double click on delete button.
+// when clicked, clear localStorage, myLeads and DOM
+
+deleteBtn.addEventListener("dblclick", function() {
+    localStorage.clear()
+    myLeads = []
+    renderLeads()
+})
 
 inputBtn.addEventListener("click", function () {
     myLeads.push(inputEl.value)
@@ -16,9 +31,6 @@ inputBtn.addEventListener("click", function () {
     // save the myLeads array to localStorage
     localStorage.setItem("myLeads", JSON.stringify(myLeads))
     renderLeads()
-
-    console.log( localStorage.getItem("myLeads"));
-
 })
 // One. Wrap the code below in a renderLeads() function
 function renderLeads() {
@@ -33,8 +45,8 @@ function renderLeads() {
         // make the link open in a new tab
         listItems += `
         <li>
-              <a target='_blank' href='${myLeads}'>
-                ${myLeads}
+              <a target='_blank' href='${myLeads[i]}'>
+                ${myLeads[i]}
               </a>
         </li>
         `
@@ -49,4 +61,3 @@ function renderLeads() {
     ulEl.innerHTML = listItems
 }
 
-// 6.13

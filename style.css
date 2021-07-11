@@ -21,6 +21,14 @@ button {
     font-weight: bold;
     cursor: pointer;
 }
+#delete-btn {
+    background:  white;
+    color: #5f9341;
+    padding: 10px 20px;
+    border: 1px solid #5f9341;
+    font-weight: bold;
+    cursor: pointer;
+}
 
 ul {
     margin-top: 20px;

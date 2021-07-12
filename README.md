@@ -7,8 +7,9 @@ How to use this extension?
 2. go to chrome://extensions/
 3. Turn on the Developer mode
 4. Click Load unpacked and upload the file from local computer
-
 Thats it
 
 Though it's a extension, I have given below the live site link. Just check how it looks like or works.
+
+
 Project Link: https://ishtiaqahammed97.github.io/leads-tracker/
